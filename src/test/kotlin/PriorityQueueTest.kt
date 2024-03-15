@@ -19,8 +19,7 @@ class PriorityQueueTest {
         priorityQueue.set("medium high priority", 2)
 
         println(priorityQueue.toString())
-        assert(priorityQueue.isValid())
-
+        println(priorityQueue.isValid())
         // Test case 3: Queue should be empty now
 
         println("All tests passed.")

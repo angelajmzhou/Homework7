@@ -1,5 +1,4 @@
 package edu.ucdavis.cs.ecs036c.homework7
-import kotlin.math.floor
 
 /*
  * Class for a priority queue that supports the comparable trait
@@ -57,19 +56,25 @@ class PriorityQueue<T, P: Comparable<P>> {
         init.forEach{
             locationData[it.first] = index
             index++
-            /*logs the index of the item in locationData (a map, with data as a key)
-            makes later access easier
-            for now it's just the order it appears in init,
-            as it will likely change later
+            /*unordered list after adding all pairs
              */
         }
-        heapify()
+        heapify() //build minheap
+        var end = init.size
+        while (end>1){
+            end = end-1
+            swap(0,end)
+            sink(0,end)
+        }
         //ensures invariants are maintained
     }
-    fun swap (first: Int, second: Int){
-        val temp = priorityData[first]
-        priorityData[first]=priorityData[second]
-        priorityData[second]=temp
+    fun swap (i: Int, j: Int){
+        val temp = priorityData[i]
+        priorityData[i]=priorityData[j]
+        priorityData[j]=temp
+
+        locationData[priorityData[i].first] = i
+        locationData[priorityData[j].first] = j
     }
 
     /*
@@ -84,6 +89,7 @@ class PriorityQueue<T, P: Comparable<P>> {
         while (start > 0){
             start = start-1
             //move node to correct position:  no child<parent
+            locationData[priorityData[start].first] = start
             sink(start, priorityData.size)
         }
     }
@@ -94,7 +100,7 @@ class PriorityQueue<T, P: Comparable<P>> {
      * the range.
      */
     fun sink(i : Int) {
-        var index = i
+        val index = i
         val range = priorityData.size
         val leftChildIndex = iLeftChild(index)
         val rightChildIndex =  iRightChild(index)
@@ -144,7 +150,7 @@ class PriorityQueue<T, P: Comparable<P>> {
 
         if (rightChildIndex >= range) {
             // Only left child exists.
-            if (priorityData[leftChildIndex].second > priorityData[index].second) {
+            if (priorityData[leftChildIndex].second < priorityData[index].second) {
                 // Swap them
                 swap(index, leftChildIndex)
             }
@@ -152,11 +158,11 @@ class PriorityQueue<T, P: Comparable<P>> {
         }
 
         // Now if we get to here that means both children exist
-        if (priorityData[leftChildIndex].second > priorityData[rightChildIndex].second && priorityData[leftChildIndex].second > priorityData[index].second) {
+        if (priorityData[leftChildIndex].second < priorityData[rightChildIndex].second && priorityData[leftChildIndex].second > priorityData[index].second) {
             // Swap them and recursively call sink on left child
             swap(index, leftChildIndex)
             sink(leftChildIndex, range)
-        } else if (priorityData[rightChildIndex].second > priorityData[leftChildIndex].second && priorityData[rightChildIndex].second > priorityData[index].second) {
+        } else if (priorityData[rightChildIndex].second < priorityData[leftChildIndex].second && priorityData[rightChildIndex].second > priorityData[index].second) {
             // Another if statement, but you do the same exact thing with the right child
             swap(index, rightChildIndex)
             sink(rightChildIndex, range)
@@ -170,14 +176,16 @@ class PriorityQueue<T, P: Comparable<P>> {
     fun swim(i : Int) {
         var index = i
         if (index == 0) return
-        //if alr first, can't swim any further up...
+        //if already first, can't swim any further up...
 
         while (index > 0) {
             val parent = iParent(index)
+                //if the parent is bigger than the current index...
             if (priorityData[parent].second > priorityData[index].second) {
-                // Swap parent and current index
+                // Swap parent and current index so heap is maintained
                 swap(parent, index)
                 index = parent
+                //keep schmoovin up the tree by node
             } else {
                 return
             }
@@ -216,9 +224,13 @@ class PriorityQueue<T, P: Comparable<P>> {
             locationData[data] = size - 1
             swim(size - 1)
         } else {
+            val oldPriority = priorityData[index].second
             priorityData[index] = Pair(data, newPriority)
-            swim(index)
-            sink(index)
+            if(newPriority>oldPriority){
+                swim(index)
+            }else {
+                sink(index)
+            }
         }
     }
 
