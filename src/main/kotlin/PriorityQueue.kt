@@ -62,10 +62,11 @@ class PriorityQueue<T, P: Comparable<P>> {
         }
         heapify() //build maxheap from input array O(n)
         var end = init.size
-        while (end > 1) {
+        while (end >= 1) {
             end = end - 1
             swap(0, end)
-            sink(0, end)
+            sink(end)
+            //issue with ranged sink...
             //taking largest item and moving it to the end
             //then sinks what was there to maintain heap property
         }
@@ -105,18 +106,19 @@ class PriorityQueue<T, P: Comparable<P>> {
      * the range. this is sink for a MAX HEAP
      */
     fun sink(i: Int) {
-        var root = 0
+        var root = i
         while (iLeftChild(root) < priorityData.size) {
             var child = iLeftChild(root)
-            if (child + 1 < priorityData.size && priorityData[child].second < priorityData[child + 1].second) {
-                child = child + 1
+            //"is right child smaller than left child"
+            if (child + 1 < priorityData.size && priorityData[child].second > priorityData[child + 1].second) {
+                child = child + 1 //use smaller child
             }
-            if (priorityData[root].second < priorityData[child].second) {
-                swap(root, child)
+            if (priorityData[root].second > priorityData[child].second) {
+                swap(root, child) //swap w/ smaller child to maintain heap
+                root=child
             } else {
                 return
             }
-            root = child
         }
 
     }
@@ -178,7 +180,6 @@ class PriorityQueue<T, P: Comparable<P>> {
             } else {
                 return
             }
-            index = iParent(index)
         }
     }
 

@@ -53,18 +53,24 @@ class PriorityQueueTest  {
     fun testNormal(){
         for(x in 0..<10) {
             val testData = mutableListOf<Pair<String, Int>>()
-            for (i in 0..<100) {
+            for (i in 0..<10) {
                 testData.add(Pair("$i", i))
             }
+            println(testData.toString())
+
             val testArray = testData.toTypedArray()
             testArray.shuffle()
             val testHeap = PriorityQueue(*testArray)
+            println(testHeap.toString())
+            //problem: first element isn't sinking during construction
             assert(testHeap.isValid())
-            for (i in 0..<100) {
-                val data = testHeap.pop()
+            for (i in 0..<10) {
+                val data = testHeap.pop() //issue here: popping a 4???
+                println(testHeap.toString())
                 assert(data == "$i")
                 assert(testHeap.isValid())
-                assert(testHeap.size == 99 - i)
+                println(testHeap.size)
+                assert(testHeap.size == 10 - i)
                 assert(testHeap.isValid())
             }
         }
@@ -123,10 +129,12 @@ class PriorityQueueTest  {
             testArray.shuffle()
             val testHeap2 = PriorityQueue(*testArray)
             testArray.shuffle()
+            println(testHeap2.toString())
             for((i, j) in testArray){
                 testHeap2.update(i, -j)
                 assert(testHeap2.isValid())
             }
+            println(testHeap2.toString())
             for (i in 99 downTo 0) {
                 val data = testHeap2.pop()
                 assert(data == "$i")

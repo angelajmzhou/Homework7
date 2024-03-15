@@ -60,14 +60,16 @@
   "keyToString": {
     "Gradle.Build Homework7.executor": "Run",
     "Gradle.PriorityQueueTest.executor": "Run",
+    "Gradle.PriorityQueueTest.testChangingDown.executor": "Run",
     "Gradle.PriorityQueueTest.testComprehensive.executor": "Run",
+    "Gradle.PriorityQueueTest.testNormal.executor": "Debug",
     "Kotlin script (Beta).build.gradle.kts.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/angel/Downloads/Homework7 2",
+    "last_opened_file_path": "/Users/angel/Desktop/Homework7 2",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -83,7 +85,7 @@
     ]
   }
 }]]></component>
-  <component name="RunManager" selected="Gradle.PriorityQueueTest.testComprehensive">
+  <component name="RunManager" selected="Gradle.PriorityQueueTest.testNormal">
     <configuration name="PriorityQueueTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -98,6 +100,30 @@
             <option value=":test" />
             <option value="--tests" />
             <option value="&quot;PriorityQueueTest&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="PriorityQueueTest.testChangingDown" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;PriorityQueueTest.testChangingDown&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -132,6 +158,30 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
+    <configuration name="PriorityQueueTest.testNormal" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;PriorityQueueTest.testNormal&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
     <configuration default="true" type="JetRunConfigurationType">
       <module name="Homework7 2" />
       <method v="2">
@@ -147,8 +197,10 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.PriorityQueueTest.testComprehensive" />
+        <item itemvalue="Gradle.PriorityQueueTest.testNormal" />
         <item itemvalue="Gradle.PriorityQueueTest" />
+        <item itemvalue="Gradle.PriorityQueueTest.testChangingDown" />
+        <item itemvalue="Gradle.PriorityQueueTest.testComprehensive" />
       </list>
     </recent_temporary>
   </component>
@@ -169,6 +221,7 @@
       <option name="presentableId" value="Default" />
       <updated>1709134462252</updated>
       <workItem from="1710457881325" duration="16920000" />
+      <workItem from="1710537465244" duration="4539000" />
     </task>
     <task id="LOCAL-00001" summary="updated code">
       <option name="closed" value="true" />
@@ -226,11 +279,30 @@
       <option name="project" value="LOCAL" />
       <updated>1710489241431</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="updated code">
+      <option name="closed" value="true" />
+      <created>1710537628732</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1710537628732</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <ignored-roots>
@@ -238,6 +310,22 @@
     </ignored-roots>
     <MESSAGE value="updated code" />
     <option name="LAST_COMMIT_MESSAGE" value="updated code" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/src/main/kotlin/PriorityQueue.kt</url>
+          <line>65</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="edu.ucdavis.cs.ecs036c.homework7.PriorityQueue" memberName="size" />
+      </pinned-members>
+    </pin-to-top-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Homework7$PriorityQueueTest_testComprehensive.ic" NAME="PriorityQueueTest.testComprehensive Coverage Results" MODIFIED="1710489176178" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
