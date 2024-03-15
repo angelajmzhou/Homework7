@@ -62,7 +62,6 @@ class PriorityQueue<T, P: Comparable<P>> {
             for now it's just the order it appears in init,
             as it will likely change later
              */
-
         }
         heapify()
         //ensures invariants are maintained
@@ -79,7 +78,9 @@ class PriorityQueue<T, P: Comparable<P>> {
      */
     fun heapify(){
         //start should be the first leaf nodes
+        //if at top of valid heap, do nothing
         var start = iParent(priorityData.size-1)+1
+        //otherwise sift down/sink as necessary: can cheat and start at halfway
         while (start > 0){
             start = start-1
             //move node to correct position:  no child<parent
@@ -93,14 +94,34 @@ class PriorityQueue<T, P: Comparable<P>> {
      * the range.
      */
     fun sink(i : Int) {
-        var k = i
+        var index = i
         val range = priorityData.size
-        while (2 * k + 1 < range) {
-            var j = 2 * k + 1
-            if (j < range - 1 && priorityData[j].second > priorityData[j + 1].second) j++
-            if (priorityData[k].second <= priorityData[j].second) break
-            swap(k, j)
-            k = j
+        val leftChildIndex = iLeftChild(index)
+        val rightChildIndex =  iRightChild(index)
+
+        if (leftChildIndex >= range) {
+            // No children, stop sinking.
+            return
+        }
+
+        if (rightChildIndex >= range) {
+            // Only left child exists.
+            if (priorityData[leftChildIndex].second > priorityData[index].second) {
+                // Swap them
+                swap(index, leftChildIndex)
+            }
+            return
+        }
+
+        // Now if we get to here that means both children exist
+        if (priorityData[leftChildIndex].second > priorityData[rightChildIndex].second && priorityData[leftChildIndex].second > priorityData[index].second) {
+            // Swap them and recursively call sink on left child
+            swap(index, leftChildIndex)
+            sink(leftChildIndex, range)
+        } else if (priorityData[rightChildIndex].second > priorityData[leftChildIndex].second && priorityData[rightChildIndex].second > priorityData[index].second) {
+            // Another if statement, but you do the same exact thing with the right child
+            swap(index, rightChildIndex)
+            sink(rightChildIndex, range)
         }
     }
 
@@ -160,7 +181,8 @@ class PriorityQueue<T, P: Comparable<P>> {
             } else {
                 return
             }
-            index= iParent(index)
+            index = iParent(index)
+        }
     }
 
 
@@ -195,9 +217,8 @@ class PriorityQueue<T, P: Comparable<P>> {
             swim(size - 1)
         } else {
             priorityData[index] = Pair(data, newPriority)
-            if (!sinkAndSwim(index)) {
-                swim(index)
-            }
+            swim(index)
+            sink(index)
         }
     }
 
@@ -206,6 +227,15 @@ class PriorityQueue<T, P: Comparable<P>> {
      */
     operator fun set(data: T, newPriority: P) {
         update(data, newPriority)
+    }
+
+    override fun toString(): String {
+        var retVal = "["
+        priorityData.forEach{
+            retVal+= "("+it.first + "," + it.second +") "
+        }
+        retVal += "]"
+        return retVal
     }
 
     /*
@@ -239,5 +269,4 @@ class PriorityQueue<T, P: Comparable<P>> {
         return true
     }
 
-}
 }
