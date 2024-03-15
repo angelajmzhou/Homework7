@@ -66,6 +66,8 @@ class PriorityQueue<T, P: Comparable<P>> {
             end = end - 1
             swap(0, end)
             sink(0, end)
+            //taking largest item and moving it to the end
+            //then sinks what was there to maintain heap property
         }
         //ensures invariants are maintained
     }
