@@ -25,23 +25,24 @@ class PriorityQueue<T, P: Comparable<P>> {
     val priorityData = mutableListOf<Pair<T, P>>()
     val locationData = mutableMapOf<T, Int>()
 
-    fun iLeftChild(i: Int): Int{
-        return (2*i+1)
+    fun iLeftChild(i: Int): Int {
+        return (2 * i + 1)
     }
-    fun iRightChild(i: Int) :Int{
-        return (2*i+2)
+
+    fun iRightChild(i: Int): Int {
+        return (2 * i + 2)
     }
-    fun iParent(i: Int) :Int{
-        return (i-1)/2
+
+    fun iParent(i: Int): Int {
+        return (i - 1) / 2
     }
 
 
     /*
     * Size function is just the internal size of the priority queue...
     */
-    val size : Int
+    val size: Int
         get() = priorityData.size
-
 
 
     /*
@@ -53,25 +54,26 @@ class PriorityQueue<T, P: Comparable<P>> {
         priorityData.addAll(init)
         // put all data/priority pairs in heap
         var index = 0
-        init.forEach{
+        init.forEach {
             locationData[it.first] = index
             index++
             /*unordered list after adding all pairs
              */
         }
-        heapify() //build minheap
+        heapify() //build maxheap from input array O(n)
         var end = init.size
-        while (end>1){
-            end = end-1
-            swap(0,end)
-            sink(0,end)
+        while (end > 1) {
+            end = end - 1
+            swap(0, end)
+            sink(0, end)
         }
         //ensures invariants are maintained
     }
-    fun swap (i: Int, j: Int){
+
+    fun swap(i: Int, j: Int) {
         val temp = priorityData[i]
-        priorityData[i]=priorityData[j]
-        priorityData[j]=temp
+        priorityData[i] = priorityData[j]
+        priorityData[j] = temp
 
         locationData[priorityData[i].first] = i
         locationData[priorityData[j].first] = j
@@ -81,14 +83,15 @@ class PriorityQueue<T, P: Comparable<P>> {
      * Heapify should ensure that the constraints are all updated.  This
      * is called by the secondary constructor.
      */
-    fun heapify(){
+    //shoudl build a max heap from unordered array
+    fun heapify() {
         //start should be the first leaf nodes
         //if at top of valid heap, do nothing
-        var start = iParent(priorityData.size-1)+1
+        var start = iParent(priorityData.size - 1) + 1
         //otherwise sift down/sink as necessary: can cheat and start at halfway
-        while (start > 0){
-            start = start-1
-            //move node to correct position:  no child<parent
+        while (start > 0) {
+            start = start - 1
+            //move node to correct position:  no child>parent
             locationData[priorityData[start].first] = start
             sink(start, priorityData.size)
         }
@@ -97,40 +100,24 @@ class PriorityQueue<T, P: Comparable<P>> {
     /*
      * We support ranged-sink so that this could also be
      * used for heapsort, so sink without it just specifies
-     * the range.
+     * the range. this is sink for a MAX HEAP
      */
-    fun sink(i : Int) {
-        val index = i
-        val range = priorityData.size
-        val leftChildIndex = iLeftChild(index)
-        val rightChildIndex =  iRightChild(index)
-
-        if (leftChildIndex >= range) {
-            // No children, stop sinking.
-            return
-        }
-
-        if (rightChildIndex >= range) {
-            // Only left child exists.
-            if (priorityData[leftChildIndex].second > priorityData[index].second) {
-                // Swap them
-                swap(index, leftChildIndex)
+    fun sink(i: Int) {
+        var root = 0
+        while (iLeftChild(root) < priorityData.size) {
+            var child = iLeftChild(root)
+            if (child + 1 < priorityData.size && priorityData[child].second < priorityData[child + 1].second) {
+                child = child + 1
             }
-            return
+            if (priorityData[root].second < priorityData[child].second) {
+                swap(root, child)
+            } else {
+                return
+            }
+            root = child
         }
 
-        // Now if we get to here that means both children exist
-        if (priorityData[leftChildIndex].second > priorityData[rightChildIndex].second && priorityData[leftChildIndex].second > priorityData[index].second) {
-            // Swap them and recursively call sink on left child
-            swap(index, leftChildIndex)
-            sink(leftChildIndex, range)
-        } else if (priorityData[rightChildIndex].second > priorityData[leftChildIndex].second && priorityData[rightChildIndex].second > priorityData[index].second) {
-            // Another if statement, but you do the same exact thing with the right child
-            swap(index, rightChildIndex)
-            sink(rightChildIndex, range)
-        }
     }
-
 
 
     /*
@@ -141,7 +128,7 @@ class PriorityQueue<T, P: Comparable<P>> {
      */
     fun sink(index: Int, range: Int) {
         val leftChildIndex = iLeftChild(index)
-        val rightChildIndex =  iRightChild(index)
+        val rightChildIndex = iRightChild(index)
 
         if (leftChildIndex >= range) {
             // No children, stop sinking.
@@ -173,14 +160,14 @@ class PriorityQueue<T, P: Comparable<P>> {
     /*
      * And the swim operation as well...
      */
-    fun swim(i : Int) {
+    fun swim(i: Int) {
         var index = i
         if (index == 0) return
         //if already first, can't swim any further up...
 
         while (index > 0) {
             val parent = iParent(index)
-                //if the parent is bigger than the current index...
+            //if the parent is bigger than the current index...
             if (priorityData[parent].second > priorityData[index].second) {
                 // Swap parent and current index so heap is maintained
                 swap(parent, index)
@@ -198,8 +185,10 @@ class PriorityQueue<T, P: Comparable<P>> {
      * This pops off the data with the lowest priority.  It MUST
      * throw an exception if there is no data left.
      */
-    fun pop() : T {
-        if (size == 0) {throw NoSuchElementException()}
+    fun pop(): T {
+        if (size == 0) {
+            throw NoSuchElementException()
+        }
         val result = priorityData.first().first //first value of priorityData
         swap(0, size - 1)
         //moves last element to front
@@ -217,7 +206,7 @@ class PriorityQueue<T, P: Comparable<P>> {
      *
      * If the key doesn't exist it should create a new one
      */
-    fun update(data: T, newPriority: P ) {
+    fun update(data: T, newPriority: P) {
         val index = locationData[data]
         if (index == null) {
             priorityData.add(Pair(data, newPriority))
@@ -226,9 +215,9 @@ class PriorityQueue<T, P: Comparable<P>> {
         } else {
             val oldPriority = priorityData[index].second
             priorityData[index] = Pair(data, newPriority)
-            if(newPriority<oldPriority){
+            if (newPriority < oldPriority) {
                 swim(index)
-            }else {
+            } else {
                 sink(index)
             }
         }
@@ -243,8 +232,8 @@ class PriorityQueue<T, P: Comparable<P>> {
 
     override fun toString(): String {
         var retVal = "["
-        priorityData.forEach{
-            retVal+= "("+it.first + "," + it.second +") "
+        priorityData.forEach {
+            retVal += "(" + it.first + "," + it.second + ") "
         }
         retVal += "]"
         return retVal
@@ -255,8 +244,7 @@ class PriorityQueue<T, P: Comparable<P>> {
      * strongly advised that you do so for testing purposes, to check
      * that all invariants are correct.
      */
-    fun isValid() : Boolean {
+    fun isValid(): Boolean {
         return true
     }
-
 }

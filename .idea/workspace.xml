@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3fa418b0-8c91-419a-b6c4-7d8edea01935" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="3fa418b0-8c91-419a-b6c4-7d8edea01935" name="Changes" comment="updated code">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/PriorityQueue.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/PriorityQueue.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/kotlin/PriorityQueueTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/PriorityQueueTest.kt" afterDir="false" />
@@ -169,8 +168,65 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1709134462252</updated>
-      <workItem from="1710457881325" duration="12164000" />
+      <workItem from="1710457881325" duration="16920000" />
     </task>
+    <task id="LOCAL-00001" summary="updated code">
+      <option name="closed" value="true" />
+      <created>1710485092256</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1710485092256</updated>
+    </task>
+    <task id="LOCAL-00002" summary="updated code">
+      <option name="closed" value="true" />
+      <created>1710485126460</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1710485126460</updated>
+    </task>
+    <task id="LOCAL-00003" summary="updated code">
+      <option name="closed" value="true" />
+      <created>1710485146822</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1710485146822</updated>
+    </task>
+    <task id="LOCAL-00004" summary="updated code">
+      <option name="closed" value="true" />
+      <created>1710485157222</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1710485157222</updated>
+    </task>
+    <task id="LOCAL-00005" summary="updated code">
+      <option name="closed" value="true" />
+      <created>1710488467126</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1710488467126</updated>
+    </task>
+    <task id="LOCAL-00006" summary="updated code">
+      <option name="closed" value="true" />
+      <created>1710488474143</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1710488474143</updated>
+    </task>
+    <task id="LOCAL-00007" summary="updated code">
+      <option name="closed" value="true" />
+      <created>1710489241431</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1710489241431</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -180,5 +236,10 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/../../.." />
     </ignored-roots>
+    <MESSAGE value="updated code" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated code" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Homework7$PriorityQueueTest_testComprehensive.ic" NAME="PriorityQueueTest.testComprehensive Coverage Results" MODIFIED="1710489176178" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

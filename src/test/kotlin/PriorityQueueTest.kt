@@ -19,6 +19,8 @@ class PriorityQueueTest {
         priorityQueue.update("shadow", 0)
         priorityQueue.update("shadow", 9)
         priorityQueue.update("shadow", 2)
+        println(priorityQueue.toString())
+
         println(priorityQueue.pop())
         println(priorityQueue.pop())
         println(priorityQueue.pop())
