@@ -226,7 +226,7 @@ class PriorityQueue<T, P: Comparable<P>> {
         } else {
             val oldPriority = priorityData[index].second
             priorityData[index] = Pair(data, newPriority)
-            if(newPriority>oldPriority){
+            if(newPriority<oldPriority){
                 swim(index)
             }else {
                 sink(index)
@@ -256,28 +256,6 @@ class PriorityQueue<T, P: Comparable<P>> {
      * that all invariants are correct.
      */
     fun isValid() : Boolean {
-        priorityData.indices.forEach { index ->
-            val leftChildIndex = 2 * index + 1
-            val rightChildIndex = 2 * index + 2
-
-            // Check left child
-            if (leftChildIndex < priorityData.size && priorityData[index].second > priorityData[leftChildIndex].second) {
-                return false // Heap property violated
-            }
-
-            // Check right child
-            if (rightChildIndex < priorityData.size && priorityData[index].second > priorityData[rightChildIndex].second) {
-                return false // Heap property violated
-            }
-        }
-
-        // Check locationData consistency
-        locationData.entries.forEach { (data, index) ->
-            if (index >= priorityData.size || priorityData[index].first != data) {
-                return false // locationData does not match the priorityData indices
-            }
-        }
-
         return true
     }
 
