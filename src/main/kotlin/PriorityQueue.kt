@@ -131,32 +131,33 @@ class PriorityQueue<T, P: Comparable<P>> {
      * of the heap.  This enables sink to be used for heapsort.
      */
     fun sink(index: Int, range: Int) {
-        val leftChildIndex = iLeftChild(index)
-        val rightChildIndex = iRightChild(index)
 
-        if (leftChildIndex >= range) {
-            // No children, stop sinking.
+        if (iLeftChild(index) >= range) {
+            // No children, do nothing.
             return
         }
 
-        if (rightChildIndex >= range) {
+        var child = iLeftChild(index)
+
+        if (iRightChild(index) >= range) {
             // Only left child exists.
-            if (priorityData[leftChildIndex].second < priorityData[index].second) {
+            if (priorityData[child].second < priorityData[index].second) {
                 // Swap them
-                swap(index, leftChildIndex)
+                swap(index, child)
             }
             return
         }
 
         // Now if we get to here that means both children exist
-        if (priorityData[leftChildIndex].second < priorityData[rightChildIndex].second && priorityData[leftChildIndex].second > priorityData[index].second) {
-            // Swap them and recursively call sink on left child
-            swap(index, leftChildIndex)
-            sink(leftChildIndex, range)
-        } else if (priorityData[rightChildIndex].second < priorityData[leftChildIndex].second && priorityData[rightChildIndex].second > priorityData[index].second) {
+        //if the right child is less than the left child, we use right child as min
+
+        if (priorityData[child].second>priorityData[child+1].second) {
+            child = child+1
+            //if the child is smaller than the parent
+        } else if (priorityData[child].second > priorityData[index].second) {
             // Another if statement, but you do the same exact thing with the right child
-            swap(index, rightChildIndex)
-            sink(rightChildIndex, range)
+            swap(index, child)
+            sink(child, range)
         }
     }
 

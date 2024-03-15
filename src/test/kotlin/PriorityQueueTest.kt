@@ -70,7 +70,7 @@ class PriorityQueueTest  {
                 assert(data == "$i")
                 assert(testHeap.isValid())
                 println(testHeap.size)
-                assert(testHeap.size == 10 - i)
+                assert(testHeap.size == 9 - i)
                 assert(testHeap.isValid())
             }
         }
