@@ -51,25 +51,19 @@ class PriorityQueue<T, P: Comparable<P>> {
      * and then call heapify/ensure the invariants are maintained
      */
     constructor (vararg init: Pair<T, P>) {
-        priorityData.addAll(init)
-        // put all data/priority pairs in heap
-        heapify() //build minheap from input array O(n)
-    }
+        // add pairs into priorityData using a for loop
+        for (pair in init){
+            priorityData.add(pair)
+        }
 
-    fun swap(i: Int, j: Int) {
-        val temp = priorityData[i]
-        priorityData[i] = priorityData[j]
-        priorityData[j] = temp
-
-        locationData[priorityData[i].first] = i
-        locationData[priorityData[j].first] = j
+        // call heapify to build a min heap
+        this.heapify()
     }
 
     /*
      * Heapify should ensure that the constraints are all updated.  This
      * is called by the secondary constructor.
      */
-    //should build a min heap from unordered array
     fun heapify(){
         // set a counter
         var i = size - 1
@@ -84,15 +78,42 @@ class PriorityQueue<T, P: Comparable<P>> {
         }
     }
 
+    // swap function for swapping nodes
+    fun swap(i: Int, j: Int){
+        // temporarily save the element
+        val temp = priorityData[i]
+
+        // perform the swap in priorityData
+        priorityData[i] = priorityData[j]
+        priorityData[j] = temp
+
+        // update locationData
+        locationData[priorityData[i].first] = i
+        locationData[priorityData[j].first] = j
+    }
+
     /*
      * We support ranged-sink so that this could also be
      * used for heapsort, so sink without it just specifies
      * the range. this is sink for a MAX HEAP
      */
-    fun sink(i : Int) {
-        sink(i, priorityData.size)
-    }
+    fun sink(i: Int) {
+        var root = i
+        while (iLeftChild(root) < priorityData.size) {
+            var child = iLeftChild(root)
+            //"is right child smaller than left child"
+            if (child + 1 < priorityData.size && priorityData[child].second > priorityData[child + 1].second) {
+                child = child + 1 //use smaller child
+            }
+            if (priorityData[root].second > priorityData[child].second) {
+                swap(root, child) //swap w/ smaller child to maintain heap
+                root=child
+            } else {
+                return
+            }
+        }
 
+    }
 
 
     /*
