@@ -7,7 +7,6 @@
     <list default="true" id="3fa418b0-8c91-419a-b6c4-7d8edea01935" name="Changes" comment="updated code">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/PriorityQueue.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/PriorityQueue.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/kotlin/PriorityQueueTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/PriorityQueueTest.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,9 +21,17 @@
   <component name="ExternalProjectsManager">
     <system id="GRADLE">
       <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
         <projects_view>
           <tree_state>
-            <expand />
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Homework7" type="f1a62948:ProjectNode" />
+              </path>
+            </expand>
             <select />
           </tree_state>
         </projects_view>
@@ -56,36 +63,36 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Gradle.Build Homework7.executor": "Run",
-    "Gradle.PriorityQueueTest.executor": "Run",
-    "Gradle.PriorityQueueTest.testChangingDown.executor": "Run",
-    "Gradle.PriorityQueueTest.testComprehensive.executor": "Run",
-    "Gradle.PriorityQueueTest.testNormal.executor": "Debug",
-    "Kotlin script (Beta).build.gradle.kts.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/angel/Desktop/Homework7 2",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Gradle.Build Homework7.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.PriorityQueueTest.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.PriorityQueueTest.testChangingDown.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.PriorityQueueTest.testComprehensive.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.PriorityQueueTest.testNormal.executor&quot;: &quot;Run&quot;,
+    &quot;Kotlin script (Beta).build.gradle.kts.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/angel/Desktop/Homework7 2&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "ChangesTree.GroupingKeys": [
-      "directory",
-      "module"
+  &quot;keyToStringList&quot;: {
+    &quot;ChangesTree.GroupingKeys&quot;: [
+      &quot;directory&quot;,
+      &quot;module&quot;
     ]
   }
-}]]></component>
-  <component name="RunManager" selected="Gradle.PriorityQueueTest.testNormal">
+}</component>
+  <component name="RunManager" selected="Gradle.PriorityQueueTest">
     <configuration name="PriorityQueueTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -197,8 +204,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.PriorityQueueTest.testNormal" />
         <item itemvalue="Gradle.PriorityQueueTest" />
+        <item itemvalue="Gradle.PriorityQueueTest.testNormal" />
         <item itemvalue="Gradle.PriorityQueueTest.testChangingDown" />
         <item itemvalue="Gradle.PriorityQueueTest.testComprehensive" />
       </list>
@@ -221,7 +228,9 @@
       <option name="presentableId" value="Default" />
       <updated>1709134462252</updated>
       <workItem from="1710457881325" duration="16920000" />
-      <workItem from="1710537465244" duration="4539000" />
+      <workItem from="1710537465244" duration="7542000" />
+      <workItem from="1710887004317" duration="3257000" />
+      <workItem from="1711082750062" duration="5726000" />
     </task>
     <task id="LOCAL-00001" summary="updated code">
       <option name="closed" value="true" />
@@ -287,7 +296,23 @@
       <option name="project" value="LOCAL" />
       <updated>1710537628732</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="updated code">
+      <option name="closed" value="true" />
+      <created>1710543636005</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1710543636006</updated>
+    </task>
+    <task id="LOCAL-00010" summary="updated code">
+      <option name="closed" value="true" />
+      <created>1710546031489</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1710546031490</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -314,11 +339,10 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/src/main/kotlin/PriorityQueue.kt</url>
-          <line>65</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.IndexOutOfBoundsException" package="java.lang" />
+          <option name="timeStamp" value="5" />
+        </breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <pin-to-top-manager>

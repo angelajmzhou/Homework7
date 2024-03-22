@@ -53,24 +53,7 @@ class PriorityQueue<T, P: Comparable<P>> {
     constructor (vararg init: Pair<T, P>) {
         priorityData.addAll(init)
         // put all data/priority pairs in heap
-        var index = 0
-        init.forEach {
-            locationData[it.first] = index
-            index++
-            /*unordered list after adding all pairs
-             */
-        }
-        heapify() //build maxheap from input array O(n)
-        var end = init.size
-        while (end >= 1) {
-            end = end - 1
-            swap(0, end)
-            sink(end)
-            //issue with ranged sink...
-            //taking largest item and moving it to the end
-            //then sinks what was there to maintain heap property
-        }
-        //ensures invariants are maintained
+        heapify() //build minheap from input array O(n)
     }
 
     fun swap(i: Int, j: Int) {
@@ -86,17 +69,18 @@ class PriorityQueue<T, P: Comparable<P>> {
      * Heapify should ensure that the constraints are all updated.  This
      * is called by the secondary constructor.
      */
-    //shoudl build a max heap from unordered array
-    fun heapify() {
-        //start should be the first leaf nodes
-        //if at top of valid heap, do nothing
-        var start = iParent(priorityData.size - 1) + 1
-        //otherwise sift down/sink as necessary: can cheat and start at halfway
-        while (start > 0) {
-            start = start - 1
-            //move node to correct position:  no child>parent
-            locationData[priorityData[start].first] = start
-            sink(start, priorityData.size)
+    //should build a min heap from unordered array
+    fun heapify(){
+        // set a counter
+        var i = size - 1
+        // for each element in priorityData backwards
+        for (pair in priorityData.reversed()){
+            // set the index in locationData
+            locationData[pair.first] = i
+            // call sink
+            sink(i)
+            // minus 1 to i
+            i--
         }
     }
 
@@ -105,23 +89,10 @@ class PriorityQueue<T, P: Comparable<P>> {
      * used for heapsort, so sink without it just specifies
      * the range. this is sink for a MAX HEAP
      */
-    fun sink(i: Int) {
-        var root = i
-        while (iLeftChild(root) < priorityData.size) {
-            var child = iLeftChild(root)
-            //"is right child smaller than left child"
-            if (child + 1 < priorityData.size && priorityData[child].second > priorityData[child + 1].second) {
-                child = child + 1 //use smaller child
-            }
-            if (priorityData[root].second > priorityData[child].second) {
-                swap(root, child) //swap w/ smaller child to maintain heap
-                root=child
-            } else {
-                return
-            }
-        }
-
+    fun sink(i : Int) {
+        sink(i, priorityData.size)
     }
+
 
 
     /*
